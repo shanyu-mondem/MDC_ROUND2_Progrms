@@ -1,0 +1,34 @@
+Blog to explain the Program2:
+Given an array of unique integers called candidates and a target integer target, return a list of all distinct combinations of candidates that add up to the target. 
+You can return the combinations in any order. 
+Note: You may select the same number from candidates multiple times. Two 
+combinations are considered distinct if the frequency of at least one of the selected 
+numbers differ.
+
+The approach I used to solve this problem is implementing the concept of backtracking using recursion.
+Here, I maintain a variable to keep the index in check hence I could:
+ 1. Repeat the same element multiple times until sum >= target
+ 2. Make sure that there are no repetitions of a set of elements such as [2,2,3], [3,2,2], i.e., I consider all possible combinations with no repetitions(avoid all permutations).
+
+Once I get the set of elements such that sum == target, I add the list to the resultant list. 
+Backtrack the list by removing the last added element, keeping the pattern intact, and adding elements at the next indices to get new combinations by avoiding the elements before the current index to maintain a distinct set of elements.
+
+Algorithm:
+1. Parameters: 
+	All_combinations stores all possible combinations that add up to the target
+	combination stores the current combinations
+	total stores the sum of elements of the current combination
+	i to keep the index in check
+2. BackTracking function:
+	1. if target == total, then append the copy of the combination to All_combinations
+	return to explore other possibilities
+	2. if target < total or i == len(candidates), then return as there is nothing much to do here anymore
+3. Recursive case:
+	1. Skip current element:
+		call backtrack(i+1, total) moves the index to the next candidate without including the current candidate at index i.
+	2. Include current element:
+		Add element candidates[i] to combination
+		Call  backtrack(i, total+candidates[i]) includes the current candidate, and exploring with updated total
+		Remove the last added candidate using the pop() function to backtrack and explore other combinations
+4. Return list:
+	After checking all the possibilities and adding the desired combinations to All_combinaitons, the final list All_combinations is returned
