@@ -1,0 +1,25 @@
+This blog explains the Program1: 
+You are provided a string in which characters at odd positions have been 
+shifted forward by three letters in the alphabet. Your task is to retrieve the original 
+characters and then reverse the string to obtain the final result. 
+Note: Special characters and numbers should remain unchanged.
+
+I have used the concept of ASCII values to solve this problem. I use a conditional statement inside the for loop, which checks the following condition:
+If the position of the char in the string is odd, then convert it into its ASCII value. If its value lies between the ranges of small alphabets (a-z:97-122) or ranges of capital alphabets(A-Z:65-91), we reduce the ASCII value of the character by 3 and convert it back to character to get the original or intended alphabet.
+At the end, we combine the elements of the list to form the original string, and reversing it gives the resultant string
+
+My approach to solving this program is as follows:
+Algorithm:
+1. Input:
+	Take a string as input - s
+	We break the string into individual characters, store them into a list - chars
+
+2. Loop:
+	Parse through each character in chars
+	if position is odd and (ascii values of char is between [97,122] or  ascii values of char is between [65,91]), then replace with letter at 3 positions before it in alphabets
+
+3. Resultant  String:
+	The list of characters now contain the characters required to form the original string
+	Combine the characters in chars list to form the string and return the reversed string
+
+I
